@@ -38,17 +38,16 @@ export class ForminputComponent implements OnInit {
   }
   onSubmit(prenom:string, mynom:string, table:string, classe:string, message:string) {
     // this.values = value ;
+    
+    this.firestore.collection(classe).doc(mynom+", "+prenom).update({
+      // table:table, 
+      pensionnaire:this.checkboxValue
+      // date : this.jstoday
+  })
     this.firestore.collection(classe).doc(mynom+", "+prenom).collection(this.jstoday).add({
       table:table,
       symptômes:message
-      // date : this.jstoday
   })
-    this.firestore.collection(classe).doc(mynom+", "+prenom).update({
-        // table:table, 
-        pensionnaire:this.checkboxValue
-        // date : this.jstoday
-    })
-    
     .then(res => {
         console.log(res);
         this.form.reset();
