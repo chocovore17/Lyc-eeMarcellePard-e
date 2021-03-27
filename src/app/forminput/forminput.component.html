@@ -1,0 +1,101 @@
+
+<ul>
+	<li *ngFor='let doc of myArray'>
+		{{doc.field}}
+	</li>
+</ul>
+
+<form [formGroup]="this.form">
+	<!-- <input #box (keyup)="onKey(box.value)">
+    <p>{{values}}</p> -->
+	<input #boxtest
+	  placeholder="New Value"
+	  formControlName="newValue"
+	  type="text"
+	  class="input-field col s12"
+	/>
+
+	<button (click)="onSubmit(boxtest.value)">
+	  Submit
+	</button>
+  </form>
+
+  
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					Cantine du Lycée Marcelle Pardée 
+				</span>
+
+				<div class="wrap-input100 validate-input" data-validate="Entrez votre nom de famille, ex: Pardée">
+					<input class="input100" id="name" type="text" name="name" placeholder="Nom ">
+					<label class="label-input100" for="name">
+						<span class="lnr lnr-user"></span>
+					</label>
+				</div>
+				
+				<div class="wrap-input100 validate-input" data-validate="Entrez votre prénom, ex: Marcelle ">
+					<input class="input100" id="firstname" type="text" name="firstname" placeholder="Prénom">
+					<label class="label-input100" for="firsname">
+						<span class="lnr lnr-user"></span>
+					</label>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Example, 1ère ">
+					<input class="input100" id="classe" type="text" name="classe" placeholder="Classe">
+					<label class="label-input100" for="classe">
+						<span class="lnr lnr-envelope"></span>
+					</label>
+				</div>
+				
+				<div class="wrap-input100 validate-input" data-validate = "Example, 1 ">
+					<input class="input100"  formControlName="newValue" id="table" type="text" name="table" placeholder="Table">
+					<label class="label-input100" for="table">
+						<span class="lnr lnr-envelope"></span>
+					</label>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Avez-vous des symptômes du COVID? (optionnel)">
+					<textarea class="input100" name="message" placeholder="Message..."></textarea>
+				</div>
+
+				<div class="contact100-form-checkbox">
+					<input class="input-checkbox100" id="ckb1" type="checkbox" name="pensionnaire">
+					<label class="label-checkbox100" for="ckb1">
+						Régime pensionnaire
+					</label>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button (click)="onSubmit(boxtest.value)" class="contact100-form-btn">
+							Enregistrer
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>

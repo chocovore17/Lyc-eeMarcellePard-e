@@ -1,16 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+// import { AngularFireModule } from 'angularfire2';
+// import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ForminputComponent } from './forminput/forminput.component';
+import { ReactiveFormsModule } from "@Angular/forms";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ForminputComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    ReactiveFormsModule
+    // AngularFirestoreModule.enablePersistence()
+
   ],
   providers: [],
   bootstrap: [AppComponent]
