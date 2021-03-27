@@ -20,7 +20,7 @@ export class ForminputComponent implements OnInit {
   jstoday = '';
 
   constructor(private firestore: AngularFirestore) {
-    this.jstoday = formatDate(this.today, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0530');
+    this.jstoday = formatDate(this.today, 'dd-MM-yyyy hh:mm:ss a',  'en-US');
   }
   checkboxValue: boolean = false;
 
