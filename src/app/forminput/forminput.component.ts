@@ -35,7 +35,8 @@ export class ForminputComponent implements OnInit {
     // this.values = value ;
     this.firestore.collection(classe).doc(mynom+", "+prenom).set({
         table:table, 
-        symptômes:message
+        symptômes:message, 
+        pensionnaire:this.checkboxValue
     })
     .then(res => {
         console.log(res);

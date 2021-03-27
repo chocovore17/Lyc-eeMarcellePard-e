@@ -68,7 +68,7 @@
 				</div> -->
 
 				<div class="contact100-form-checkbox">
-					<input type="checkbox" [(ngModel)]="checkboxValue" formControlName="newValue" />
+					<input class="input-checkbox100" id="ckb1" type="checkbox" [checked]="checkboxValue" (change)="checkboxValue = !checkboxValue" />
 					<!-- <input class="input-checkbox100" id="ckb1" type="checkbox" name="pensionnaire" #pensionnaire> -->
 					<label class="label-checkbox100" for="ckb1">
 						Régime pensionnaire
