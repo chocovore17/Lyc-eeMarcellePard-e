@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from "@angular/fire/firestore";
 import { FormControl, FormGroup } from "@Angular/forms";
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
+import {formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-forminput',
@@ -15,8 +16,12 @@ export class ForminputComponent implements OnInit {
   form = new FormGroup({
     newValue: new FormControl('')
   })
+  today= new Date();
+  jstoday = '';
 
-  constructor(private firestore: AngularFirestore) {}
+  constructor(private firestore: AngularFirestore) {
+    this.jstoday = formatDate(this.today, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0530');
+  }
   checkboxValue: boolean = false;
 
   ngOnInit(): void {
@@ -36,7 +41,8 @@ export class ForminputComponent implements OnInit {
     this.firestore.collection(classe).doc(mynom+", "+prenom).set({
         table:table, 
         symptômes:message, 
-        pensionnaire:this.checkboxValue
+        pensionnaire:this.checkboxValue,
+        date : this.jstoday
     })
     .then(res => {
         console.log(res);
