@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from "@angular/fire/firestore";
 import { FormControl, FormGroup } from "@Angular/forms";
+import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 
 @Component({
   selector: 'app-forminput',
@@ -16,6 +17,8 @@ export class ForminputComponent implements OnInit {
   })
 
   constructor(private firestore: AngularFirestore) {}
+  checkboxValue: boolean = false;
+
   ngOnInit(): void {
     
     this.firestore
@@ -28,10 +31,11 @@ export class ForminputComponent implements OnInit {
   });
   
   }
-  onSubmit(value:string) {
-    this.values = value ;
-    this.firestore.collection('Secondes').add({
-        field: this.values
+  onSubmit(prenom:string, mynom:string, table:string, classe:string, message:string) {
+    // this.values = value ;
+    this.firestore.collection(classe).doc(mynom+", "+prenom).set({
+        table:table, 
+        symptômes:message
     })
     .then(res => {
         console.log(res);
@@ -41,6 +45,5 @@ export class ForminputComponent implements OnInit {
         console.log(e);
     })
 }
-  
 
 }

@@ -1,13 +1,11 @@
 
-<ul>
+<!-- <ul>
 	<li *ngFor='let doc of myArray'>
 		{{doc.field}}
 	</li>
 </ul>
 
 <form [formGroup]="this.form">
-	<!-- <input #box (keyup)="onKey(box.value)">
-    <p>{{values}}</p> -->
 	<input #boxtest
 	  placeholder="New Value"
 	  formControlName="newValue"
@@ -18,50 +16,60 @@
 	<button (click)="onSubmit(boxtest.value)">
 	  Submit
 	</button>
-  </form>
+  </form> -->
 
   
 	<div class="container-contact100">
 		<div class="wrap-contact100">
-			<form class="contact100-form validate-form">
+			<form class="contact100-form validate-form"  [formGroup]="this.form">
 				<span class="contact100-form-title">
 					Cantine du Lycée Marcelle Pardée 
 				</span>
 
 				<div class="wrap-input100 validate-input" data-validate="Entrez votre nom de famille, ex: Pardée">
-					<input class="input100" id="name" type="text" name="name" placeholder="Nom ">
+					<input class="input100"  formControlName="newValue"  id="name" type="text" name="name" placeholder="Nom " #nom>
 					<label class="label-input100" for="name">
 						<span class="lnr lnr-user"></span>
 					</label>
 				</div>
 				
 				<div class="wrap-input100 validate-input" data-validate="Entrez votre prénom, ex: Marcelle ">
-					<input class="input100" id="firstname" type="text" name="firstname" placeholder="Prénom">
+					<input class="input100"  formControlName="newValue"  id="firstname" type="text" name="firstname" placeholder="Prénom" #prenom>
 					<label class="label-input100" for="firsname">
 						<span class="lnr lnr-user"></span>
 					</label>
 				</div>
 
 				<div class="wrap-input100 validate-input" data-validate = "Example, 1ère ">
-					<input class="input100" id="classe" type="text" name="classe" placeholder="Classe">
+					<input class="input100"  formControlName="newValue" id="classe" type="text" name="classe" placeholder="Classe" #classe>
 					<label class="label-input100" for="classe">
 						<span class="lnr lnr-envelope"></span>
 					</label>
 				</div>
 				
 				<div class="wrap-input100 validate-input" data-validate = "Example, 1 ">
-					<input class="input100"  formControlName="newValue" id="table" type="text" name="table" placeholder="Table">
+					<input class="input100"  formControlName="newValue" id="table" type="text" name="table" placeholder="Table" #table>
 					<label class="label-input100" for="table">
 						<span class="lnr lnr-envelope"></span>
 					</label>
 				</div>
 
-				<div class="wrap-input100 validate-input" data-validate = "Avez-vous des symptômes du COVID? (optionnel)">
-					<textarea class="input100" name="message" placeholder="Message..."></textarea>
+				<div class="wrap-input100 validate-input" data-validate = "Optionnel ">
+					<input class="input100"  formControlName="newValue" id="symtopmes" type="text" name="symptômes" placeholder="Avez vous des symptômes de la COVID19 ? (champ optionnel)" #symptomes>
+					<label class="label-input100" for="symptomes">
+						<span class="lnr lnr-envelope"></span>
+					</label>
 				</div>
 
+				<!-- <div class="wrap-input100 validate-input" data-validate = "Avez-vous des symptômes du COVID? (optionnel)">
+					<textarea class="input100" name="message" placeholder="Message...">
+						<input formControlName="newValue" #message>
+					</textarea>
+				</div> -->
+
 				<div class="contact100-form-checkbox">
-					<input class="input-checkbox100" id="ckb1" type="checkbox" name="pensionnaire">
+					<input type="checkbox" [(ngModel)]="checkboxValue" formControlName="newValue" />
+					<!-- <input class="input-checkbox100" id="ckb1" type="checkbox" name="pensionnaire" #pensionnaire> -->
 					<label class="label-checkbox100" for="ckb1">
 						Régime pensionnaire
 					</label>
@@ -70,7 +78,7 @@
 				<div class="container-contact100-form-btn">
 					<div class="wrap-contact100-form-btn">
 						<div class="contact100-form-bgbtn"></div>
-						<button (click)="onSubmit(boxtest.value)" class="contact100-form-btn">
+						<button (click)="onSubmit(prenom.value, nom.value, table.value, classe.value, symptomes.value)" class="contact100-form-btn">
 							Enregistrer
 						</button>
 					</div>
