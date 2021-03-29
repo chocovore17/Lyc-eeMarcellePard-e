@@ -18,9 +18,9 @@
 	</button>
   </form> -->
 
-  
-	<div class="container-contact100">
-		<img class='topleft' src="./../../assets/images/logo.jfif" alt="School logo" width=200 height=500>
+  <ng-container *ngIf="show">
+	<div class="container-contact100"id="questionnaire">
+		<!-- <img class='topleft' src="./../../assets/images/logo.jfif" alt="School logo" width=200 height=500> -->
 		<div class="wrap-contact100">
 			<form class="contact100-form validate-form"  [formGroup]="this.form">
 				<span class="contact100-form-title">
@@ -55,12 +55,12 @@
 					</label>
 				</div>
 
-				<div class="wrap-input100 validate-input" data-validate = "Optionnel ">
+				<!-- <div class="wrap-input100 validate-input" data-validate = "Optionnel ">
 					<input class="input100"  formControlName="newValue" id="symtopmes" type="text" name="symptômes" placeholder="Avez vous des symptômes de la COVID19 ? (champ optionnel)" #symptomes>
 					<label class="label-input100" for="symptomes">
 						<span class="lnr lnr-envelope"></span>
 					</label>
-				</div>
+				</div> -->
 
 				<!-- <div class="wrap-input100 validate-input" data-validate = "Avez-vous des symptômes du COVID? (optionnel)">
 					<textarea class="input100" name="message" placeholder="Message...">
@@ -68,18 +68,17 @@
 					</textarea>
 				</div> -->
 
-				<div class="contact100-form-checkbox">
+				<!-- <div class="contact100-form-checkbox">
 					<input class="input-checkbox100" id="ckb1" type="checkbox" [checked]="checkboxValue" (change)="checkboxValue = !checkboxValue" />
-					<!-- <input class="input-checkbox100" id="ckb1" type="checkbox" name="pensionnaire" #pensionnaire> -->
 					<label class="label-checkbox100" for="ckb1">
 						Régime pensionnaire
 					</label>
-				</div>
+				</div> -->
 
 				<div class="container-contact100-form-btn">
 					<div class="wrap-contact100-form-btn">
 						<div class="contact100-form-bgbtn"></div>
-						<button (click)="onSubmit(prenom.value, nom.value, table.value, classe.value, symptomes.value)" class="contact100-form-btn">
+						<button (click)="onSubmit(prenom.value, nom.value, table.value, classe.value);hideQuestions();" class="contact100-form-btn">
 							Enregistrer
 						</button>
 					</div>
@@ -87,6 +86,20 @@
 			</form>
 		</div>
 	</div>
+  </ng-container>
+
+  <ng-container *ngIf="!show">
+	<div class="container-contact100"id="questionnaire">
+		<img class='topleft' src="./../../assets/images/logo.jfif" alt="School logo" width=200 height=500>
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form"  [formGroup]="this.form">
+				<span class="contact100-form-title">
+					Merci pour votre participation ! 
+				</span>
+			</form>
+		</div>
+	</div>
+  </ng-container>
 
 
 

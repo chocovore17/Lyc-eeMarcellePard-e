@@ -13,6 +13,7 @@ export class ForminputComponent implements OnInit {
   myArray: any[] = [];
   docs: any[] = [];
   values = '';
+  public show:boolean = true;
   form = new FormGroup({
     newValue: new FormControl('')
   })
@@ -22,7 +23,7 @@ export class ForminputComponent implements OnInit {
   constructor(private firestore: AngularFirestore) {
     this.jstoday = formatDate(this.today, 'dd-MM-yyyy hh:mm:ss a',  'en-US');
   }
-  checkboxValue: boolean = false;
+  // checkboxValue: boolean = false;
 
   ngOnInit(): void {
     
@@ -36,17 +37,18 @@ export class ForminputComponent implements OnInit {
   });
   
   }
-  onSubmit(prenom:string, mynom:string, table:string, classe:string, message:string) {
+  
+  onSubmit(prenom:string, mynom:string, table:string, classe:string) {
     // this.values = value ;
     
     this.firestore.collection(classe).doc(mynom+", "+prenom).update({
       // table:table, 
-      pensionnaire:this.checkboxValue
+      // pensionnaire:this.checkboxValue
       // date : this.jstoday
   })
     this.firestore.collection(classe).doc(mynom+", "+prenom).collection(this.jstoday).add({
       table:table,
-      symptômes:message
+      // symptômes:message
   })
     .then(res => {
         console.log(res);
@@ -55,6 +57,10 @@ export class ForminputComponent implements OnInit {
     .catch(e => {
         console.log(e);
     })
+}
+hideQuestions(){
+  this.show = !this.show;
+
 }
 
 }
