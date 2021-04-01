@@ -3,6 +3,7 @@ import { AngularFirestore } from "@angular/fire/firestore";
 import { FormControl, FormGroup } from "@Angular/forms";
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import {formatDate } from '@angular/common';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
 
 @Component({
   selector: 'app-forminput',

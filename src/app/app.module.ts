@@ -10,11 +10,11 @@ import { AppComponent } from './app.component';
 import { ForminputComponent } from './forminput/forminput.component';
 import { ReactiveFormsModule } from "@Angular/forms";
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
 @NgModule({
   declarations: [
     AppComponent,
-    ForminputComponent
+    ForminputComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,8 +22,9 @@ import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     ReactiveFormsModule,
-    FormsModule
-    // AngularFirestoreModule.enablePersistence()
+    FormsModule,
+    NgbModule
+
 
   ],
   providers: [],
