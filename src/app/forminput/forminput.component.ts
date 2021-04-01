@@ -19,38 +19,30 @@ export class ForminputComponent implements OnInit {
     newValue: new FormControl('')
   })
   today= new Date();
-  jstoday = '';
+  jstoday : string;
 
   constructor(private firestore: AngularFirestore) {
-    this.jstoday = formatDate(this.today, 'dd-MM-yyyy hh:mm:ss a',  'en-US');
+    this.jstoday = formatDate(this.today, 'dd-MM-yyyy hh',  'en-US');
   }
   // checkboxValue: boolean = false;
 
   ngOnInit(): void {
     
-    this.firestore
-  .collection("Secondes")
-  .get()
-  .subscribe((ss) => {
-    ss.docs.forEach((doc) => {
-      this.myArray.push(doc.data());
-    });
-  });
   
   }
-  
   onSubmit(prenom:string, mynom:string, table:string, classe:string) {
     // this.values = value ;
-    
-    this.firestore.collection(classe).doc(mynom+", "+prenom).update({
-      // table:table, 
-      // pensionnaire:this.checkboxValue
-      // date : this.jstoday
+
+    var myvar = {};
+    myvar[mynom] = table;
+      this.firestore.collection("MarcelleParde").doc(this.jstoday).collection(table).add({
+      nom:mynom,
+      prenom:prenom,
+      classe:classe
   })
-    this.firestore.collection(classe).doc(mynom+", "+prenom).collection(this.jstoday).add({
-      table:table,
-      // symptômes:message
-  })
+
+    this.firestore.collection("MarcelleParde").doc(this.jstoday).set(myvar, { merge: true })
+  
     .then(res => {
         console.log(res);
         this.form.reset();
