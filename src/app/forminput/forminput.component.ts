@@ -34,7 +34,8 @@ export class ForminputComponent implements OnInit {
     // this.values = value ;
 
     var myvar = {};
-    myvar[mynom] = table;
+    var thestring = mynom+", "+prenom;
+    myvar[thestring] = table;
       this.firestore.collection("MarcelleParde").doc(this.jstoday).collection(table).add({
       nom:mynom,
       prenom:prenom,
