@@ -30,9 +30,20 @@ export class ForminputComponent implements OnInit {
     
   
   }
+  
+  toTitleCase(str) {
+    return str.replace(
+      /\w\S*/g,
+      function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+      }
+    );
+  }
+
   onSubmit(prenom:string, mynom:string, table:string, classe:string) {
     // this.values = value ;
-
+    prenom = this.toTitleCase(prenom);
+    mynom = this.toTitleCase(mynom);
     var myvar = {};
     var thestring = mynom+", "+prenom;
     myvar[thestring] = table;
