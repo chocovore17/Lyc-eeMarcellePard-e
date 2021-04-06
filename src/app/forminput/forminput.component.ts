@@ -4,6 +4,7 @@ import { FormControl, FormGroup } from "@Angular/forms";
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import {formatDate } from '@angular/common';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-forminput',
@@ -14,6 +15,7 @@ export class ForminputComponent implements OnInit {
   myArray: any[] = [];
   docs: any[] = [];
   values = '';
+  indeterminate = false;
   public show:boolean = true;
   form = new FormGroup({
     newValue: new FormControl('')

@@ -20,11 +20,10 @@
 
   <ng-container *ngIf="show">
 	<div class="container-contact100"id="questionnaire">
-		<!-- <img class='topleft' src="./../../assets/images/logo.jfif" alt="School logo" width=200 height=500> -->
 		<div class="wrap-contact100">
 			<form class="contact100-form validate-form"  [formGroup]="this.form">
 				<span class="contact100-form-title">
-					Cantine du Lycée Marcelle Pardé 
+					Restaurant scolaire du Lycée Marcelle Pardé 
 				</span>
 
 				<div class="wrap-input100 validate-input" data-validate="Entrez votre nom de famille, ex: Pardée">
@@ -74,7 +73,8 @@
 						Régime pensionnaire
 					</label>
 				</div> -->
-				
+				<mat-checkbox class="example-margin" [(ngModel)]="indeterminate">J'autorise l'enregistrement de mes données sur 
+					<a href="https://firebase.google.com/products/firestore?gclid">Cloud Firestore</a> pour une durée fixe d'un mois.</mat-checkbox>
 				
 				<div class="container-contact100-form-btn">
 					<div class="wrap-contact100-form-btn">

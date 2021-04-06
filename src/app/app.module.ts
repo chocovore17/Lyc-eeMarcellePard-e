@@ -11,6 +11,9 @@ import { ForminputComponent } from './forminput/forminput.component';
 import { ReactiveFormsModule } from "@Angular/forms";
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
+// import {BrowserAnimationsModule} from '@angular/animations browser/animations';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +26,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
     AngularFirestoreModule,
     ReactiveFormsModule,
     FormsModule,
-    NgbModule
+    // BrowserAnimationsModule,
+    NgbModule,
+    MatCheckboxModule
 
 
   ],
